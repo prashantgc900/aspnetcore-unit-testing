@@ -1,17 +1,17 @@
 ﻿using LibraryApi.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Xunit.Abstractions;
 
 namespace LibraryApi.UnitTests.Helpers
 {
     public class MathHelperTests
     {
         private readonly MathHelper _mathHelper;
+        private readonly ITestOutputHelper _outputHelper;
 
-        public MathHelperTests()
+        public MathHelperTests(ITestOutputHelper outputHelper)
         {
             _mathHelper = new MathHelper();
+            _outputHelper = outputHelper;
         }
 
         [Fact]
@@ -24,6 +24,8 @@ namespace LibraryApi.UnitTests.Helpers
 
             // Act
             int result = _mathHelper.Add(a, b);
+
+            _outputHelper.WriteLine("Adding {0} and {1} gives {2}", a, b, result);
 
             // Assert
             Assert.Equal(3, result);
