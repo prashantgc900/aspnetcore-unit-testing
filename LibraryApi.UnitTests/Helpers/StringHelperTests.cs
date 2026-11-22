@@ -11,7 +11,7 @@ namespace LibraryApi.UnitTests.Helpers
             _stringHelper = new StringHelper();
         }
 
-        [Fact]
+        [Fact(DisplayName = "IsEmpty With Empty String Returns True")]
         public void IsEmpty_WithEmptyString_ReturnsTrue()
         {
             // Arrange
@@ -69,7 +69,7 @@ namespace LibraryApi.UnitTests.Helpers
             Assert.Equal(expectedCount, result);
         }
 
-        [Fact(Skip = "Skipping test for demonstration purpose")]
+        [Fact(Skip = "Skipping test for demonstration purpose", DisplayName = "CountWords with null string returns 0")]
         public void CountWords_WithNull_ReturnsCorrectCount()
         {
             // Arrange
